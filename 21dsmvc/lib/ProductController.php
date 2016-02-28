@@ -10,7 +10,7 @@ class ProductController extends ProductView {
     * @param $model an instance of the ProductModel class
     * @param $getvars the incoming HTTP GET method variables
     */
-    function ProductController (&$model,$getvars=null) {
+    function ProductController ( $model, $getvars=null ) {
         ProductView::ProductView($model);
         $this->header();
         switch ( $getvars['view'] ) {

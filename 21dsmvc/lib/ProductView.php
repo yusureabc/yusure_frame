@@ -20,8 +20,8 @@ class ProductView {
     * Constucts a new ProductView object
     * @param $model an instance of the ProductModel class
     */
-    function ProductView (&$model) {
-        $this->model=& $model;
+    function ProductView ( $model ) {
+        $this->model = $model;
     }
 
     //! A manipulator

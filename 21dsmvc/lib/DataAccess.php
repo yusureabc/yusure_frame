@@ -25,6 +25,7 @@ class DataAccess {
     function DataAccess ($host,$user,$pass,$db) {
         $this->db=mysql_pconnect($host,$user,$pass);
         mysql_select_db($db,$this->db);
+        mysql_query( 'set names utf8' );
     }
 
     //! An accessor

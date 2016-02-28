@@ -14,8 +14,8 @@ class ProductModel {
     * Constucts a new ProductModel object
     * @param $dbobject an instance of the DataAccess class
     */
-    function ProductModel (&$dao) {
-        $this->dao=& $dao;
+    function ProductModel ( $dao ) {
+        $this->dao = $dao;
     }
 
     //! A manipulator
