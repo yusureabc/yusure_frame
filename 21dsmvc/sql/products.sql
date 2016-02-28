@@ -21,7 +21,7 @@ CREATE TABLE products (
   UNITSINSTOCK varchar(255) NOT NULL default '',
   DISCONTINUED varchar(255) NOT NULL default '',
   PRIMARY KEY  (PRODUCTID)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 #
 # Dumping data for table `products`
