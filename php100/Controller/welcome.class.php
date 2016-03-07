@@ -1,9 +1,15 @@
 <?php
-class welcome 
+
+class Welcome extends Controller
 {
 
     public function index()
     {
-        echo ( 'hello world' );
+        $this->assign( 'title', 'Hello World' );
+        $this->assign( 'body', 'Yusure 大大大大大大' );
+        $this->display( 'index' );
     }
+
+
+
 }

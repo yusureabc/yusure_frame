@@ -2,6 +2,25 @@
 
 class Controller 
 { 
+
+    protected $view = NULL;
+
+    public function __construct()
+    {
+        /* 实例化视图类 */
+        $this->view = new view();
+    }
+
+    public function assign( $var, $value )
+    { 
+        $this->view->assign( $var, $value );
+    }
+
+    public function display( $file )
+    {
+        $this->view->display( $file );
+    }
+
     public function Run() 
     { 
         $this->Analysis(); //开始解析URL获得请求的控制器和方法 
