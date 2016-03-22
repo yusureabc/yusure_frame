@@ -80,5 +80,28 @@ class Controller
         $_GET['a'] = $action = !empty($action) ? $action : $C['DEFAULT_ACTION']; 
     } 
 
+    /**
+     * 加载Model模型
+     * @author Yusure  http://yusure.cn
+     * @date   2016-03-22
+     * @param  [param]
+     * @param  [type]     $modelName [description]
+     */
+    protected function LoadModel( $modelName )
+    {
+        /* Model文件路径 */
+        $modelFile = ROOT_PATH . '/Model/' . $modelName . '.class.php';
+        /* Model 文件是否存在的检查 */
+        ! file_exists( $modelFile ) && exit( $modelName . '不存在！' );
+        /* 引入Model文件 */
+        include ( $modelName );
+        /* 获取类名 注意：类名首字母大写 */
+        $class = ucwords( $modelName );
+        ! class_exists( $class ) && exit( $class . '未定义！' );
+        /* 返回实例化 Model */
+        return new $class();
+
+    }
+
 } 
 ?> 
