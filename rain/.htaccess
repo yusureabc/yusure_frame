@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-d
+  	RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ([a-zA-Z0-9]+)\/([a-zA-Z0-9]+)\/([a-zA-Z0-9]+)(\/.*?)?.html$ $1.php?app=$1&act=$2&mod=$3&q=$4 [QSA,PT,L]
+</IfModule>

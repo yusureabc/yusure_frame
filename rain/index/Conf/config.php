@@ -1,0 +1,18 @@
+<?php
+defined('IN_FW') or die('deny');
+
+return 
+array(
+	'db' => array(
+		'dsn' => 'mysql:host=127.0.0.1;dbname=testdb;charset=utf8',
+		'un' => 'root',
+		'pw' => '123456',
+		'pre' => 'tb_',
+	),
+
+	'memcache' => array(
+		'host' => '127.0.0.1',
+		'port' => '11211',
+		'timeout' => 1,
+	),
+);
