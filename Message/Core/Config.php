@@ -3,6 +3,7 @@
         'URL_MODE'        => 2,          // URL模式, 1普通模式, 2 PATH_INFO模式 
         'DEFAULT_CONTROL' => 'Index',    // 默认调用的控制器 
         'DEFAULT_ACTION'  => 'index',    // 默认执行的方法 
+        'PUBLIC_URL'      => 'http://frame.message.com/Public',
         /* 数据库配置 Start */
         'DB_HOST'    =>  '127.0.0.1',   // 服务器地址
         'DB_NAME'    =>  'ys_frame',    // 数据库名

@@ -113,7 +113,7 @@ class Template
 
 		$patt		= '(' . $this->leftTag . ')(\S.+?)(' . $this->rightTag .')';
 		$content	= preg_replace("/{$patt}/eis", "\$this->ParseTag('\\2')", $content);
-		$str		= "<?php !defined('ROOT_PATH') && exit; /* Tomorrow Framework 模板缓存文件 生成时间:".date('Y-m-d H:i:s', time()) . "  */ ?>\r\n";
+		$str		= "<?php !defined('ROOT_PATH') && exit; /* 模板缓存文件 生成时间:".date('Y-m-d H:i:s', time()) . "  */ ?>\r\n";
 		$content   = $str . $content;
 		return file_put_contents($this->cacheFile, $content);
 	}
@@ -445,7 +445,7 @@ class Template
 	{
 		$this->templateFile = $this->templatePath . $file . $this->templateSuffix;
 		$file_arr = explode( '/', $file );
-		$this->cacheFile	 = $this->cachePath . $file_arr['0'] . '_' . md5($file_arr['1']) . '.php';
+		$this->cacheFile	 = $this->cachePath . $file_arr['0'] . '_' . $file_arr['1'] . '.html';
 	}
 
 

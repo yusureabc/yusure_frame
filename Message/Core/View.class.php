@@ -56,7 +56,7 @@ class View
         /* 4、是否开启缓存 */
         $this->template->cache = TRUE;
         /* 5、设置缓存目录 */
-        $this->template->cachePath = ROOT_PATH . '/Cache/tpl/';
+        $this->template->cachePath = CACHE_TPL;
         /* 6、缓存文件有效时间 分钟 */
         $this->template->cacheLifeTime = 1;
         /* 7、设置模板后缀 */
