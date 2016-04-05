@@ -65,9 +65,9 @@ class Controller
         { 
             if(isset($_SERVER['PATH_INFO'])) 
             { 
-                //$_SERVER['PATH_INFO']URL地址中文件名后的路径信息, 不好理解, 来看看例子 
-                //比如你现在的URL是 [url=http://www.php100.com/index.php]http://www.php100.com/index.php[/url] 那么你的$_SERVER['PATH_INFO']就是空的 
-                //但是如果URL是 [url=http://www.php100.com/index.php/abc/123]http://www.php100.com/index.php/abc/123[/url] 
+                //$_SERVER['PATH_INFO']URL地址中文件名后的路径信息
+                //比如你现在的URL是 [url=http://www.xxx.com/index.php]http://www.xxx.com/index.php[/url] 那么你的$_SERVER['PATH_INFO']就是空的 
+                //但是如果URL是 [url=http://www.xxx.com/index.php/abc/123]http://www.xxx.com/index.php/abc/123[/url] 
                 //现在的$_SERVER['PATH_INFO']的值将会是 index.php文件名称后的内容 /abc/123/ 
                 $path = trim($_SERVER['PATH_INFO'], '/'); 
                 $paths = explode('/', $path); 
@@ -102,8 +102,54 @@ class Controller
         ! class_exists( $class ) && exit( $class . '未定义！' );
         /* 返回实例化 Model */
         return new $class();
+    }
 
+    /**
+     * 操作成功的方法
+     * @author Yusure  http://yusure.cn
+     * @date   2016-04-01
+     * @param  [param]
+     * @return [type]     [description]
+     */
+    protected function success( $info, $url = '' )
+    {
+        $url = $url ? : $_SERVER['HTTP_REFERER'];
+        echo '<script>' . 
+        'alert(\''. $info .'\');' . 
+        'location.href = \'' . $url
+        . '\'</script>';
+    }
+
+    /**
+     * 操作失败的方法
+     * @author Yusure  http://yusure.cn
+     * @date   2016-04-01
+     * @param  [param]
+     * @return [type]     [description]
+     */
+    protected function error( $info, $url = '' )
+    {
+        $url = $url ? : $_SERVER['HTTP_REFERER'];
+        echo '<script>' . 
+        'alert(\''. $info .'\');' . 
+        'location.href = \'' . $url
+        . '\'</script>';
     }
 
 } 
-?> 
+
+/**
+ * 用户登陆基类
+ */
+class BaseUserController extends Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        /* 检查session是否登陆 */
+        if ( ! session( 'user' ) )
+        {
+            $this->error( '请登录！', get_url( 'Login/login' ) );
+        }
+    }
+}

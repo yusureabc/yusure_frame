@@ -1,0 +1,37 @@
+<?php include_once( VIEW_PATH . 'Public/head.html' ); ?>
+
+<form class="am-form am-form-horizontal">
+  <div class="am-form-group">
+    <label for="doc-ipt-3" class="am-u-sm-2 am-form-label">账号</label>
+    <div class="am-u-sm-10">
+      <input type="text" name="username" placeholder="输入你的账号">
+    </div>
+  </div>
+
+  <div class="am-form-group">
+    <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">密码</label>
+    <div class="am-u-sm-10">
+      <input type="password" name="password" placeholder="输入密码吧">
+    </div>
+  </div>
+
+  <div class="am-g">
+    <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">验证码</label>
+    <div class="am-u-lg-6">
+      <div class="am-input-group am-input-group-lg">
+        <input type="text" class="am-form-field" name="v_code">
+        <span class="am-input-group-btn">
+          <img title="点击刷新" src="<?php echo get_url( 'Login/validatecode' ); ?>" align="absbottom" onclick="this.src='<?php echo get_url( 'Login/validatecode' ); ?>?'+Math.random();" />
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="am-form-group">
+    <div class="am-u-sm-10 am-u-sm-offset-2">
+      <button type="submit" class="am-btn am-btn-default">登陆</button>
+    </div>
+  </div>
+</form>
+
+<?php include_once( VIEW_PATH . 'Public/foot.html' ); ?>

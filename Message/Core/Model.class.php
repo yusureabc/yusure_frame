@@ -14,7 +14,7 @@ class Model
      * @date   2016-03-22
      * @param  [param]
      */
-    public function __construct()
+    public function __construct( $table )
     {
         global $C;
         $this->dbLink = mysql_connect(
@@ -24,6 +24,30 @@ class Model
         ) or exit( mysql_error() ) ;
         mysql_select_db( $C['DB_NAME'], $this->dbLink ) or exit( mysql_error() );
         mysql_query( "SET NAMES {$C{'DB_CHARSET'}}" );
+        $this->table = $C['DB_PREFIX'] . $table;
+    }
+
+    /**
+     * 添加数据
+     * @author Yusure  http://yusure.cn
+     * @date   2016-04-01
+     * @param  [param]
+     * @param  [type]     $data [description]
+     */
+    public function add( $data )
+    {
+        ! is_array( $data ) && die( '请使用数组方式操作数据！' );
+        $field = $value = '';
+        foreach ( $data as $k => $v )
+        {
+            $field .= ',' . $k;
+            $value .= ',' . "'" . $v . "'";
+        }
+        $field = substr( $field, 1 );
+        $value = substr( $value, 1 );
+        $sql = "INSERT INTO {$this->table} ($field) VALUES ($value)";
+        $this->query( $sql );
+        return mysql_insert_id();
     }
 
     /**
