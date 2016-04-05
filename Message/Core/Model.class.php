@@ -51,6 +51,64 @@ class Model
     }
 
     /**
+     * 获取一条记录
+     * @author Yusure  http://yusure.cn
+     * @date   2016-04-05
+     * @param  [param]
+     * @return [type]     [description]
+     */
+    public function get_info( $condition = '', $field = '*' )
+    {
+        if ( is_array( $condition ) )
+        {
+            $con_str = '';
+            foreach ( $condition as $k => $v )
+            {
+                $con_str .= 'AND ' . $k . ' = ' . "'{$v}' ";
+            }
+            $condition = substr( $con_str, 3 );           
+        }
+        else if ( is_string( $condition ) )
+        {
+
+        }
+        $sql = "SELECT {$field} FROM {$this->table} WHERE {$condition}";
+        $sql_res = $this->query( $sql );
+        return mysql_fetch_assoc( $sql_res );        
+    }
+
+    /**
+     * 获取列表
+     * @author Yusure  http://yusure.cn
+     * @date   2016-04-05
+     * @param  [param]
+     * @return [type]     [description]
+     */
+    public function get_list( $condition, $field  )
+    {
+        if ( is_array( $condition ) )
+        {
+            $con_str = '';
+            foreach ( $condition as $k => $v )
+            {
+                $con_str .= 'AND ' . $k . ' = ' . "'{$v}' ";
+            }
+            $condition = substr( $con_str, 3 );           
+        }
+        else if ( is_string( $condition ) )
+        {
+
+        }
+        $sql = "SELECT {$field} FROM {$this->table} WHERE {$condition}";
+        $sql_res = $this->query( $sql );
+        while ( $result = mysql_fetch_array( $sql_res ) )
+        {
+            $list[] = $result;
+        }
+        return $list;
+    }
+
+    /**
      * 执行SQL
      * @author Yusure  http://yusure.cn
      * @date   2016-03-22
@@ -60,7 +118,7 @@ class Model
      */
     public function query( $sql )
     {
-        return mysql_query( $sql ) or exit( mysql_error() ) ;
+        return mysql_query( $sql );
     }
 
     /**

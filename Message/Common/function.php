@@ -135,7 +135,15 @@ function session( $name = '', $value = '' )
         }
         else
         {
-            return $_SESSION[$name];
+            if ( strstr( $name, '.' ) )
+            {
+                $name = explode( '.', $name );
+                return $_SESSION[ $name[0] ][ $name[1] ];
+            }
+            else
+            {
+                return $_SESSION[$name];
+            }            
         }
     }
     else if ( is_null( $value ) )
@@ -161,7 +169,8 @@ function cookies()
  * @param int $numeric 是否只产生数字随机数 1是0否
  * @return string
  */
-function random($length, $numeric = 0) {
+function random($length, $numeric = 0) 
+{
     $seed = base_convert(md5(microtime().$_SERVER['DOCUMENT_ROOT']), 16, $numeric ? 10 : 35);
     $seed = $numeric ? (str_replace('0', '', $seed).'012340567890') : ($seed.'zZ'.strtoupper($seed));
     $hash = '';
@@ -171,3 +180,4 @@ function random($length, $numeric = 0) {
     }
     return $hash;
 }
+

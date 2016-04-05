@@ -133,7 +133,7 @@ class Controller
         echo '<script>' . 
         'alert(\''. $info .'\');' . 
         'location.href = \'' . $url
-        . '\'</script>';
+        . '\'</script>';die;
     }
 
 } 

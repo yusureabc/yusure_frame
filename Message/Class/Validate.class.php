@@ -171,7 +171,6 @@ Class Validate {
 			if ($v['result'] == false){
 				$error .= $v['message'];
 				if ($this->error_show_type == 'html' and trim($error) != ''){
-					$error .= "<br/>"; 
 					return $error;
 				}
 			}

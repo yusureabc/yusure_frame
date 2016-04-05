@@ -1,7 +1,7 @@
 <?php include_once( VIEW_PATH . 'Public/head.html' ); ?>
 
 <div class="doc-example">
-    <ul class="am-comments-list am-comments-list-flip">
+    <ul id="ul_msglist" class="am-comments-list am-comments-list-flip">
         <li class="am-comment">
         <a href="#link-to-user-home">
         <img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96" alt="" class="am-comment-avatar" width="48" height="48"></a>
@@ -29,19 +29,24 @@
             </footer>
         </div>
         </li>
-        <li class="am-comment"><a href="#link-to-user-home"><img src="http://www.gravatar.com/avatar/1ecedeede84a44f371b9d8d656bb4265?d=mm&amp;s=96" alt="" class="am-comment-avatar" width="48" height="48"></a>
+        <?php foreach ( (array)$msg_list as $k => $v ) { ?>
+        <li class="am-comment">
+        <a href="#link-to-user-home">
+        <img src="<?php echo $v['avatar']; ?>" alt="" class="am-comment-avatar" width="48" height="48"></a>
         <div class="am-comment-main">
             <header class="am-comment-hd">
-            <div class="am-comment-meta">
-                <a href="#link-to-user" class="am-comment-author">路人甲</a> 评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-13 0:03</time>
+            <div class="am-comment-meta">                
+                <a href="#link-to-user" class="am-comment-author"> <?php echo $v['username']; ?> </a> 发表留言 <time datetime="<?php echo $v['datetime']; ?>" title="<?php echo $v['datetime']; ?>"> <?php echo $v['datetime']; ?> </time>
             </div>
             </header>
             <div class="am-comment-bd">
-                <p>
-                    She's gone 我早知道<br>
-                    她将要 从我的生命中走掉<br>
-                    不再停留多一秒
-                </p>
+                <p> <?php echo $v['content']; ?> </p>
+                <!-- <blockquote>
+                    <a href="#link-to-user" class="am-comment-author">Yusure</a>
+                    <a href="#lin-to-user">@某人</a>
+                    我打算在下个月和樱子结婚。
+                    <a href=""><i class="am-icon-reply"></i>回复</a>
+                </blockquote> -->
             </div>
             <footer class="am-comment-footer">
                 <div class="am-comment-actions">
@@ -50,102 +55,56 @@
             </footer>
         </div>
         </li>
-        <li class="am-comment am-comment-primary"><a href="#link-to-user-home"><img src="http://www.gravatar.com/avatar/1ecedeede84abbf371b9d8d656bb4265?d=mm&amp;s=96" alt="" class="am-comment-avatar" width="48" height="48"></a>
-        <div class="am-comment-main">
-            <header class="am-comment-hd">
-            <div class="am-comment-meta">
-                <a href="#link-to-user" class="am-comment-author">路人乙</a> 评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-14 23:30</time>
-            </div>
-            </header>
-            <div class="am-comment-bd">
-                <p>
-                    <a href="#lin-to-user">@某人</a> 撸主保重！
-                </p>
-            </div>
-        </div>
-        </li>
-        <li class="am-comment am-comment-flip am-comment-secondary"><a href="#link-to-user-home"><img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96" alt="" class="am-comment-avatar" width="48" height="48"></a>
-        <div class="am-comment-main">
-            <header class="am-comment-hd">
-            <div class="am-comment-meta">
-                <a href="#link-to-user" class="am-comment-author">某人</a> 评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-14 23:301</time>
-            </div>
-            </header>
-            <div class="am-comment-bd">
-                <p>
-                    <a href="#lurenyi">@路人乙</a> 朕知道了！
-                </p>
-            </div>
-        </div>
-        </li>
-        <li class="am-comment am-comment-highlight"><a href="#link-to-user-home"><img src="http://www.gravatar.com/avatar/1ecedeede84abbf371b9d8d656bb4265?d=mm&amp;s=96" alt="" class="am-comment-avatar" width="48" height="48"></a>
-        <div class="am-comment-main">
-            <header class="am-comment-hd">
-            <div class="am-comment-meta">
-                <a href="#link-to-user" class="am-comment-author">路人乙</a> 评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-14 23:32</time>
-            </div>
-            </header>
-            <div class="am-comment-bd">
-                <p>
-                    <a href="#lin-to-user">@某人</a> 艹民告退！
-                </p>
-            </div>
-        </div>
-        </li>
-        <li class="am-comment am-comment-flip am-comment-danger"><a href="#link-to-user-home"><img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96" alt="" class="am-comment-avatar" width="48" height="48"></a>
-        <div class="am-comment-main">
-            <header class="am-comment-hd">
-            <div class="am-comment-meta">
-                <a href="#link-to-user" class="am-comment-author">某人</a> 评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-14 23:301</time>
-            </div>
-            </header>
-            <div class="am-comment-bd">
-                <p>
-                    <a href="#lurenyi">@路人乙</a> 滚！
-                </p>
-            </div>
-        </div>
-        </li>
-        <li class="am-comment am-comment-warning"><a href="#link-to-user-home"><img src="http://www.gravatar.com/avatar/1ecedeede84abbf371b9d8d656bb4265?d=mm&amp;s=96" alt="" class="am-comment-avatar" width="48" height="48"></a>
-        <div class="am-comment-main">
-            <header class="am-comment-hd">
-            <div class="am-comment-meta">
-                <a href="#link-to-user" class="am-comment-author">路人乙</a> 评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-14 23:32</time>
-            </div>
-            </header>
-            <div class="am-comment-bd">
-                <p>
-                    <a href="#lin-to-user">@某人</a> 你妹！
-                </p>
-            </div>
-        </div>
-        </li>
-        <li class="am-comment am-comment-flip am-comment-success"><a href="#link-to-user-home"><img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96" alt="" class="am-comment-avatar" width="48" height="48"></a>
-        <div class="am-comment-main">
-            <header class="am-comment-hd">
-            <div class="am-comment-meta">
-                <a href="#link-to-user" class="am-comment-author">某人</a> 评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-14 23:301</time>
-            </div>
-            </header>
-            <div class="am-comment-bd">
-                <p>
-                    <a href="#lurenyi">@路人乙</a> 你妹你妹！
-                </p>
-            </div>
-        </div>
-        </li>
+        <?php } ?>
     </ul>
 </div>
-<form class="am-form">
+<span class="am-form">
 <a href="#link-to-user-home">
-        <img src="<?php echo $_SESSION['user']['avatar']; ?>" alt="" class="am-comment-avatar" width="48" height="48"></a>
+   <img src="<?php echo $_SESSION['user']['avatar']; ?>" alt="" class="am-comment-avatar" width="48" height="48">
+</a>
 <fieldset>
     <div class="am-form-group">
       <label for="doc-ta-1">请输入您的留言</label>
-      <textarea class="" rows="5" id="doc-ta-1"></textarea>
+      <textarea class="" rows="5" id="msg_content"></textarea>
     </div>
-
-    <p><button type="submit" class="am-btn am-btn-default">提交</button></p>
+    <p><button type="submit" id="submit_msg" class="am-btn am-btn-default">提交</button></p>
 </fieldset>
-</form>
+</span>
+
+<span id="am_alert"></span>
+
+<script type="text/javascript">
+$(function(){
+    $('#submit_msg').click( function() {
+        var url = "<?php echo get_url( 'Message/add_msg' ); ?>";
+        var content = $('#msg_content').val().trim();
+        var data = {
+            'content': content,
+        };
+        var avatar = "<?php echo session( 'user.avatar' ); ?>";
+        var username = "<?php echo session( 'user.username' ); ?>";
+        var datetime = "<?php echo date( 'Y-m-d H:i', NOW_TIME ); ?>";
+        $.ajax({
+            'url': url,
+            'type': 'post',
+            'data': data,
+            'dataType': 'json',
+            success: function ( msg ) {
+                am_alert( '', msg['info'] );
+                if ( msg['status'] )
+                {
+                    /* TODO 追加html */
+                    var msg_html = add_msg( avatar, username, datetime, content );
+                    $('#ul_msglist > li:first').before( msg_html );
+                    $('#msg_content').val( '' );
+                }
+            },
+            error: function () {
+                alert( '网络错误' );
+            }
+        });
+    });
+});
+    
+</script>
 <?php include_once( VIEW_PATH . 'Public/foot.html' ); ?>

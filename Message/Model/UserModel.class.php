@@ -22,4 +22,16 @@ class UserModel extends Model
     {
         return $this->add( $data );
     }
+
+    /**
+     * 获取会员信息
+     * @author Yusure  http://yusure.cn
+     * @date   2016-04-05
+     * @param  [param]
+     * @return [type]     [description]
+     */
+    public function get_userinfo( $conditon, $field = '*' )
+    {
+        return $this->get_info( $conditon, $field );
+    }
 }
