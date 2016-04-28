@@ -47,3 +47,21 @@ function add_msg( avatar, username, datetime, content )
     msg_html += '</div></footer></div></li>';                  
     return msg_html;       
 }
+
+/**
+ * 无刷新增加回复
+ * @author Yusure  http://yusure.cn
+ * @date   2016-04-28
+ * @param  [param]
+ */
+function add_reply( username, receive_name, content )
+{
+    var reply_html = '';
+    reply_html += '<blockquote>';
+    reply_html += '<a href="#link-to-user" class="am-comment-author">' + username + '</a>';
+    reply_html += '<a href="#lin-to-user">@' + receive_name + '</a>';
+    reply_html += ' ' + content + ' ';
+    reply_html += '<a href=""><i class="am-icon-reply"></i>回复</a>';
+    reply_html += '</blockquote>';          
+    return reply_html;
+}
