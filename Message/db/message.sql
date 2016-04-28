@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50524
 File Encoding         : 65001
 
-Date: 2016-04-05 16:44:25
+Date: 2016-04-05 22:01:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,11 +26,15 @@ CREATE TABLE `msg_message` (
   `content` text COMMENT '留言内容',
   `add_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '添加时间',
   PRIMARY KEY (`message_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='主留言 表';
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='主留言 表';
 
 -- ----------------------------
 -- Records of msg_message
 -- ----------------------------
+INSERT INTO `msg_message` VALUES ('23', '28', 'yusure', '昨天和一个读者微信交流。', '1459863303');
+INSERT INTO `msg_message` VALUES ('24', '28', 'yusure', '她：“我男朋友人特别好，跟我特别合，我们也互相很喜欢对方。我真觉得他就是我的Mr.right。但他离过婚，这让我很苦恼。我自己条件挺好的，实在不想让别人说我挑来挑去，最后却找了个离婚的。”', '1459863322');
+INSERT INTO `msg_message` VALUES ('25', '28', 'yusure', '“时间不长，就五个多月，也没孩子，离婚是因为他们没感情，他本来不想结，但他妈觉得那个姑娘好，逼他，那时候他妈身体不好，因为他不想结婚，气得脑梗住院，差点过世，他无奈之下答应的。这些情况当时我就听说过，当然那时候我们还不太认识。谈恋爱以后，我去他家，他妈见了我就哭，说自己以前太糊涂了，儿子明明不愿意还那么逼他，结果闹成这样。”', '1459863340');
+INSERT INTO `msg_message` VALUES ('26', '28', 'yusure', '“是我前男友啊。”', '1459863351');
 
 -- ----------------------------
 -- Table structure for msg_reply
@@ -71,30 +75,4 @@ CREATE TABLE `msg_user` (
 -- ----------------------------
 -- Records of msg_user
 -- ----------------------------
-INSERT INTO `msg_user` VALUES ('2', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('3', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('4', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('5', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('6', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('7', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('8', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('9', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('10', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('11', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('12', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('13', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('14', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('15', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('16', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('17', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('18', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('19', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('20', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('21', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('22', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('23', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('24', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('25', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('26', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
-INSERT INTO `msg_user` VALUES ('27', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');
 INSERT INTO `msg_user` VALUES ('28', 'yusure', 'e10adc3949ba59abbe56e057f20f883e', '1', 'http://frame.message.com/Public/upload/avatar/avatar_799bad5a3b514f096e69bbc4a7896cd9.jpg');

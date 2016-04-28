@@ -32,7 +32,8 @@
         <?php foreach ( (array)$msg_list as $k => $v ) { ?>
         <li class="am-comment">
         <a href="#link-to-user-home">
-        <img src="<?php echo $v['avatar']; ?>" alt="" class="am-comment-avatar" width="48" height="48"></a>
+        <img src="<?php echo $v['avatar']; ?>" alt="" class="am-comment-avatar" width="48" height="48">
+        </a>
         <div class="am-comment-main">
             <header class="am-comment-hd">
             <div class="am-comment-meta">                
@@ -41,6 +42,20 @@
             </header>
             <div class="am-comment-bd">
                 <p> <?php echo $v['content']; ?> </p>
+                <?php if ( is_array( $v['reply_list'] ) ) { ?>
+                <?php foreach ( $v['reply_list'] as $reply_v ) { ?>
+                <blockquote>
+                    <a href="#link-to-user" class="am-comment-author"> 
+                        <?php echo $reply_v['username']; ?> 
+                    </a>
+                    <a href="#lin-to-user"> @<?php echo $reply_v['receive_name']; ?> </a>
+                    &nbsp;<?php echo $reply_v['content']; ?>&nbsp;
+                    <a href="javascript:void(0);"><i class="am-icon-reply"></i>回复</a>
+                </blockquote>
+                <?php } } ?>
+                <span id="reply_<?php echo $v['message_id']; ?>"></span>
+                    
+                
                 <!-- <blockquote>
                     <a href="#link-to-user" class="am-comment-author">Yusure</a>
                     <a href="#lin-to-user">@某人</a>
@@ -49,8 +64,12 @@
                 </blockquote> -->
             </div>
             <footer class="am-comment-footer">
-                <div class="am-comment-actions">
-                <a href=""><i class="am-icon-reply"></i>回复</a>
+                <div class="am-comment-actions">                
+                    <a href='javascript:void(0);' name="msg_reply">
+                        <input type="hidden" name="message_id" value="<?php echo $v['message_id']; ?>" />
+                        <input type="hidden" name="userid" value="<?php echo $v['userid']; ?>" />
+                        <i class="am-icon-reply"></i>回复
+                    </a>
                 </div>
             </footer>
         </div>
@@ -73,38 +92,23 @@
 
 <span id="am_alert"></span>
 
+<div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">评论留言</div>
+    <div class="am-modal-bd">
+      来来来，吐槽点啥吧
+      <textarea rows="5" class="am-modal-prompt-input"></textarea>
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+      <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
-$(function(){
-    $('#submit_msg').click( function() {
-        var url = "<?php echo get_url( 'Message/add_msg' ); ?>";
-        var content = $('#msg_content').val().trim();
-        var data = {
-            'content': content,
-        };
-        var avatar = "<?php echo session( 'user.avatar' ); ?>";
-        var username = "<?php echo session( 'user.username' ); ?>";
-        var datetime = "<?php echo date( 'Y-m-d H:i', NOW_TIME ); ?>";
-        $.ajax({
-            'url': url,
-            'type': 'post',
-            'data': data,
-            'dataType': 'json',
-            success: function ( msg ) {
-                am_alert( '', msg['info'] );
-                if ( msg['status'] )
-                {
-                    /* TODO 追加html */
-                    var msg_html = add_msg( avatar, username, datetime, content );
-                    $('#ul_msglist > li:first').before( msg_html );
-                    $('#msg_content').val( '' );
-                }
-            },
-            error: function () {
-                alert( '网络错误' );
-            }
-        });
-    });
-});
-    
+    var reply_url = "<?php echo get_url( 'Message/add_reply' ); ?>";
 </script>
+<script type="text/javascript" src="__PUBLIC__/js/msg_list.js"></script>
+
 <?php include_once( VIEW_PATH . 'Public/foot.html' ); ?>

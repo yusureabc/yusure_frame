@@ -28,8 +28,8 @@ class MessageModel extends Model
      * @param  [param]
      * @return [type]     [description]
      */
-    public function get_msglist( $condition, $field )
+    public function get_msglist( $condition, $field, $order = 'add_time DESC' )
     {
-        return $this->get_list( $condition, $field );
+        return $this->get_list( $condition, $field, $order );
     }
 }

@@ -43,3 +43,5 @@ msg_reply    留言评论 表
 
 
 CSS  -> Comment 评论组件
+
+JS插件 -> 模态窗口 -> 弹框

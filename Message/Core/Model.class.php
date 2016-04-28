@@ -84,7 +84,7 @@ class Model
      * @param  [param]
      * @return [type]     [description]
      */
-    public function get_list( $condition, $field  )
+    public function get_list( $condition, $field, $order = '' )
     {
         if ( is_array( $condition ) )
         {
@@ -100,6 +100,10 @@ class Model
 
         }
         $sql = "SELECT {$field} FROM {$this->table} WHERE {$condition}";
+        if ( $order )
+        {
+            $sql .= ' ORDER BY ' . $order;
+        }
         $sql_res = $this->query( $sql );
         while ( $result = mysql_fetch_array( $sql_res ) )
         {
