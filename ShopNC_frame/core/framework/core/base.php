@@ -59,9 +59,6 @@ final class Base{
 		}
 		$nc_config['db']['master'] = $nc_config['db'][1];
 		$setting_config = $nc_config;
-		$setting = ($setting = H('setting')) ? $setting : H('setting',true);
-		$setting['b2b2c_version'] = '';
-		$setting_config = array_merge_recursive($setting,$nc_config);
 	}
 
 	/**
@@ -69,11 +66,6 @@ final class Base{
 	 *
 	 */
 	private static function control(){
-		//二级域名
-		if ($GLOBALS['setting_config']['enabled_subdomain'] == '1' && $_GET['act'] == 'index' && $_GET['op'] == 'index'){
-			$store_id = subdomain();
-			if ($store_id > 0) $_GET['act'] = 'show_store';
-		}
 		$act_file = realpath(BASE_PATH.'/control/'.$_GET['act'].'.php');
 		$class_name = $_GET['act'].'Control';
 		if (!@include($act_file)){
