@@ -1,0 +1,38 @@
+<?php
+defined('IN_B2B2C') or exit('Access Invalid!');
+$config                                  = array();
+$config['site_url']                      = 'http://172.16.3.94:8091/';
+$config['upload_site_url']               = 'http://172.16.3.94:8091/data/upload';
+$config['resource_site_url']             = 'http://172.16.3.94:8091/data/resource';
+$config['gip']                           = 0;
+$config['dbdriver']                      = 'mysqli';
+$config['tablepre']                      = 'mall_';
+$config['db'][1]['dbhost']               = '172.16.3.82';
+$config['db'][1]['dbport']               = '3306';
+$config['db'][1]['dbuser']               = 'jishubu';
+$config['db'][1]['dbpwd']                = 'jishubu';
+$config['db'][1]['dbname']               = 'mall31';
+$config['db'][1]['dbcharset']            = 'UTF-8';
+$config['db']['slave']                   = array();
+$config['session_expire']                = 3600;
+$config['lang_type']                     = 'zh_cn';
+$config['cookie_pre']                    = '3550_';
+$config['tpl_name']                      = 'default';
+$config['thumb']['cut_type']             = 'gd';
+$config['thumb']['impath']               = '';
+$config['cache']['type']                 = 'file';
+//$config['memcache']['prefix']          = 'nc_';
+//$config['memcache'][1]['port']         = 11211;
+//$config['memcache'][1]['host']         = '127.0.0.1';
+//$config['memcache'][1]['pconnect']     = 0;
+//$config['redis']['prefix']             = 'nc_';
+//$config['redis']['master']['port']     = 6379;
+//$config['redis']['master']['host']     = '127.0.0.1';
+//$config['redis']['master']['pconnect'] = 0;
+//$config['redis']['slave']              = array();
+$config['fullindexer']['open']           = true;
+$config['debug']                         = true;
+// 是否开启伪静态
+$config['url_model']                     = false;
+//$config['cookie_domain']               = '.mall.com';
+$config['cookie_domain']                 = '172.16.3.94';
